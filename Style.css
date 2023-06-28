@@ -3,19 +3,24 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
+  background-color: #2D4356;
 }
 
 h1, h2, h3 {
-  margin: 0;
+  color: #888;
+}
+
+li {
+  color: #888;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width:700px; 
+  margin: 40px auto;
   padding: 40px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #435B66;
+  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.808);
+  border-radius: 25px;
 }
 
 /* Estilos da seção de apresentação */
