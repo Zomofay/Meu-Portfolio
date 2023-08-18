@@ -24,7 +24,6 @@ h3 {
   border-radius: 25px;
 }
 
-/* Estilos da seção de apresentação */
 .presentation {
   text-align: center;
   margin-bottom: 40px;
@@ -45,6 +44,7 @@ h3 {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 20px;
+  font-size: 80%;
 }
 
 .projects {
@@ -126,8 +126,7 @@ h3 {
 }
 
 .sidebar-toggle {
-  position: fixed;
-  top: 180px;
-  left: 550px;
+  position:relative;
+  left: 50%;
   z-index: 999;
 }
