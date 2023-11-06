@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Portfólio</title>
   <link rel="stylesheet" href="Style.css">
 </head>
+
 <body>
   <div class="container">
-    <button class="bar">|||</button>
     <div class="presentation">
       <h1>Meu Portfólio</h1>
       <h3>Bem-vindo ao meu portfólio!<br> Aqui estão alguns dos meus projetos.</h3>
     </div>
     <button class="Visitar">Visitar</button>
-    <button class="sidebar-toggle">Visualizar</button>
     <div class="content">
       <div class="projects">
-        <div class="project project-1">
-            <img src="banner.jpg" alt="Projeto 1">
-            <div class="project-content">
-              <h2>Projeto 1</h2>
-              <p>FRONT-END</p>
-            </div>
+        <div class="project" id="project-1">
+          <img src="Site-de-Odonto-main/banner.jpg" alt="Projeto 1">
+          <div class="project-content">
+            <h2>Projeto 1</h2>
+            <p>Registro Odontológico.</p>
+            <button class="project-button" data-project-id="project-1">Visualizar</button>
+          </div>
           </a>
         </div>
-        <div class="project">
-            <img src="Mountain-2.jpg" alt="Projeto 2">
-            <div class="project-content">
-              <h2>Projeto 2</h2>
-              <p>BACK-END</p>
-            </div>
+        <div class="project" id="project-2">
+          <img src="Mountain-2.jpg" alt="Projeto 2">
+          <div class="project-content">
+            <h2>Projeto 2</h2>
+            <p>Descrição do projeto 2.</p>
+            <button class="project-button" data-project-id="project-2">Visualizar</button>
+          </div>
           </a>
         </div>
-        <div class="project">
-            <img src="Mountain-3.jpg" alt="Projeto 3">
-            <div class="project-content">
-              <h2>Projeto 3</h2>
-              <p>FULL-STACK</p>
-            </div>
+        <div class="project" id="project-3">
+          <img src="Mountain-3.jpg" alt="Projeto 3">
+          <div class="project-content">
+            <h2>Projeto 3</h2>
+            <p>Descrição do projeto 3.</p>
+            <button class="project-button" data-project-id="project-3">Visualizar</button>
+          </div>
           </a>
         </div>
       </div>
       <div class="sidebar">
         <!-- Conteúdo da barra lateral -->
-        <img src="banner.jpg" alt="Projeto 1">
+        <img src="Site-de-Odonto-main/banner.jpg" alt="Projeto 1">
       </div>
     </div>
     <div class="contact">
-          <h4>Ajuda?</h4>
-          <button class="sidebar-contato">Entre em contato</button>
-            <p>Nome: Anderson da Silva Farias Filho</p>
-            <p>Email: andersonfilho12@hotmail.com</p>
-            <p>Telefone: (67) 98195-3143</p>
+      <h4>Entre em Contato</h4>
+      <p>Nome: Anderson da Silva Farias Filho</p>
+      <p>Email: andersonfilho12@hotmail.com</p>
+      <p>Telefone: (67) 98195-3143</p>
     </div>
+    <button class="sidebar-toggle">Visualizar</button> <!-- Botão para mostrar/ocultar a barra lateral -->
   </div>
   <script src="script.js"></script> <!-- Arquivo JavaScript -->
 </body>
+
 </html>
