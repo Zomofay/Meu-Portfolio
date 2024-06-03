@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // Adicionar funcionalidade ao botão "Visitar"
   visitarButton.addEventListener('click', () => {
-    window.location.href = 'file:///C:/Users/Bruno/Desktop/Meu-Portfolio-main/banner.jpg'; // Substitua pelo link desejado
+    window.location.href = 'https://seu-site-aqui.com'; // Substitua pelo link desejado
   });
 });
