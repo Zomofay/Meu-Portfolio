@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       selectedProject = img;
 
-      // 🔥 Se a sidebar já estiver aberta, atualiza automaticamente
+      // Atualiza automaticamente se a sidebar estiver aberta
       if (sidebarOpen) {
         updateSidebar(selectedProject);
       }
@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   sidebarToggle.addEventListener('click', () => {
 
     if (!selectedProject) {
-      alert('Selecione um projeto primeiro.');
+      // 🔔 Mostrar alerta amigável se não tiver nada selecionado
+      alert('Por favor, selecione um projeto antes de visualizar.');
       return;
     }
 
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  // Função para atualizar conteúdo
+  // Função para atualizar conteúdo da sidebar
   function updateSidebar(project) {
     sidebarImage.src = project.dataset.src;
     sidebarTitle.textContent = project.dataset.title;
