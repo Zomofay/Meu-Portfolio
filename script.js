@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sidebar = document.querySelector('.sidebar');
   const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const visitarButton = document.querySelector('.visitar');
+  const visitarButton = document.querySelector('.Visitar'); // mantém a classe original
   const projects = document.querySelectorAll('.project img');
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarTitle = document.getElementById('sidebar-title');
@@ -17,18 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
-
       selectedProject = img;
 
       // Atualiza automaticamente se sidebar aberta
-      if (sidebarOpen) {
-        updateSidebar(selectedProject);
-      }
+      if (sidebarOpen) updateSidebar(selectedProject);
 
     });
   });
 
-  // Botão Visualizar → toggle
+  // Botão Visualizar → toggle + muda texto
   sidebarToggle.addEventListener('click', () => {
 
     if (!selectedProject) {
@@ -36,25 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (sidebarOpen) {
-      sidebar.classList.remove('active');
-      sidebarOpen = false;
-    } else {
-      updateSidebar(selectedProject);
-      sidebar.classList.add('active');
-      sidebarOpen = true;
-    }
+    sidebarOpen = !sidebarOpen;
 
+    if (sidebarOpen) {
+      sidebar.classList.add('active');
+      sidebarToggle.textContent = "Fechar"; // muda para Fechar
+      updateSidebar(selectedProject);
+    } else {
+      sidebar.classList.remove('active');
+      sidebarToggle.textContent = "Visualizar"; // volta para Visualizar
+    }
   });
 
-  // Botão Visitar → abre nova aba
+  // Botão Visitar
   if (visitarButton) {
     visitarButton.addEventListener('click', () => {
       if (!selectedProject) {
         alert('Por favor, selecione um projeto antes de visitar.');
         return;
       }
-
       const link = selectedProject.dataset.link || 'https://seu-site-aqui.com';
       window.open(link, '_blank');
     });
