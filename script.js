@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle'); // Botão Visualizar
-  const visitarButton = document.querySelector('.Visitar'); // Botão Visitar
+  const sidebarToggle = document.querySelector('.sidebar-toggle');
+  const visitarButton = document.querySelector('.visitar');
   const projects = document.querySelectorAll('.project img');
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarTitle = document.getElementById('sidebar-title');
@@ -11,19 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedProject = null;
   let sidebarOpen = false;
 
-  // Seleciona projeto
+  // Selecionar projeto
   projects.forEach(img => {
     img.addEventListener('click', () => {
+
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
+
       selectedProject = img;
 
-      // Atualiza automaticamente se sidebar estiver aberta
-      if (sidebarOpen) updateSidebar(selectedProject);
+      // Atualiza automaticamente se sidebar aberta
+      if (sidebarOpen) {
+        updateSidebar(selectedProject);
+      }
+
     });
   });
 
-  // Toggle sidebar + muda texto do botão
+  // Botão Visualizar → toggle
   sidebarToggle.addEventListener('click', () => {
 
     if (!selectedProject) {
@@ -31,27 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    sidebarOpen = !sidebarOpen;
-
     if (sidebarOpen) {
-      sidebar.classList.add('active');
-      sidebarToggle.textContent = "Fechar"; // Aqui muda o texto
-      updateSidebar(selectedProject);
-    } else {
       sidebar.classList.remove('active');
-      sidebarToggle.textContent = "Visualizar"; // Volta para o padrão
+      sidebarOpen = false;
+    } else {
+      updateSidebar(selectedProject);
+      sidebar.classList.add('active');
+      sidebarOpen = true;
     }
+
   });
 
-  // Botão Visitar
-  visitarButton.addEventListener('click', () => {
-    if (!selectedProject) {
-      alert('Por favor, selecione um projeto antes de visitar.');
-      return;
-    }
-    const link = selectedProject.dataset.link || 'https://seu-site-aqui.com';
-    window.open(link, '_blank');
-  });
+  // Botão Visitar → abre nova aba
+  if (visitarButton) {
+    visitarButton.addEventListener('click', () => {
+      if (!selectedProject) {
+        alert('Por favor, selecione um projeto antes de visitar.');
+        return;
+      }
+
+      const link = selectedProject.dataset.link || 'https://seu-site-aqui.com';
+      window.open(link, '_blank');
+    });
+  }
 
   // Atualiza conteúdo da sidebar
   function updateSidebar(project) {
