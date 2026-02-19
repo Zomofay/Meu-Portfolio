@@ -7,20 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarTitle = document.getElementById('sidebar-title');
   const sidebarDescription = document.getElementById('sidebar-description');
 
-  let selectedProject = null; // Projeto selecionado
-  let sidebarOpen = false;    // Sidebar aberta ou não
+  let selectedProject = null;
+  let sidebarOpen = false;
 
   // Selecionar projeto (sem abrir)
   projects.forEach(img => {
     img.addEventListener('click', () => {
 
-      // Marca visualmente
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
 
       selectedProject = img;
 
-      // Atualiza automaticamente se a sidebar já estiver aberta
+      // Atualiza automaticamente se a sidebar estiver aberta
       if (sidebarOpen) {
         updateSidebar(selectedProject);
       }
@@ -28,23 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Botão Visualizar
+  // Botão Visualizar como TOGGLE
   sidebarToggle.addEventListener('click', () => {
 
-    // 🔒 Verifica se algum projeto foi selecionado
-    if (!selectedProject) {
-      // Se não tiver projeto selecionado, mostra alerta e NÃO abre sidebar
+    // Se sidebar estiver aberta, fecha e volta ao padrão
+    if (sidebarOpen) {
       sidebar.classList.remove('active');
       sidebarOpen = false;
+      return;
+    }
+
+    // Se não tiver projeto selecionado, alerta
+    if (!selectedProject) {
       alert('Por favor, selecione um projeto antes de visualizar.');
       return;
     }
 
-    // Abre sidebar
+    // Caso sidebar esteja fechada e projeto selecionado → abre e mostra conteúdo
     sidebar.classList.add('active');
     sidebarOpen = true;
 
-    // Atualiza o conteúdo da sidebar
     updateSidebar(selectedProject);
 
   });
