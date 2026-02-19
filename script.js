@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const visitarButton = document.querySelector('.Visitar'); // mantém a classe original
+  const sidebarToggle = document.querySelector('.sidebar-toggle'); // Botão Visualizar
+  const visitarButton = document.querySelector('.Visitar'); // Botão Visitar
   const projects = document.querySelectorAll('.project img');
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarTitle = document.getElementById('sidebar-title');
@@ -11,21 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedProject = null;
   let sidebarOpen = false;
 
-  // Selecionar projeto
+  // Seleciona projeto
   projects.forEach(img => {
     img.addEventListener('click', () => {
-
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
       selectedProject = img;
 
-      // Atualiza automaticamente se sidebar aberta
+      // Atualiza automaticamente se sidebar estiver aberta
       if (sidebarOpen) updateSidebar(selectedProject);
-
     });
   });
 
-  // Botão Visualizar → toggle + muda texto
+  // Toggle sidebar + muda texto do botão
   sidebarToggle.addEventListener('click', () => {
 
     if (!selectedProject) {
@@ -37,25 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sidebarOpen) {
       sidebar.classList.add('active');
-      sidebarToggle.textContent = "Fechar"; // muda para Fechar
+      sidebarToggle.textContent = "Fechar"; // Aqui muda o texto
       updateSidebar(selectedProject);
     } else {
       sidebar.classList.remove('active');
-      sidebarToggle.textContent = "Visualizar"; // volta para Visualizar
+      sidebarToggle.textContent = "Visualizar"; // Volta para o padrão
     }
   });
 
   // Botão Visitar
-  if (visitarButton) {
-    visitarButton.addEventListener('click', () => {
-      if (!selectedProject) {
-        alert('Por favor, selecione um projeto antes de visitar.');
-        return;
-      }
-      const link = selectedProject.dataset.link || 'https://seu-site-aqui.com';
-      window.open(link, '_blank');
-    });
-  }
+  visitarButton.addEventListener('click', () => {
+    if (!selectedProject) {
+      alert('Por favor, selecione um projeto antes de visitar.');
+      return;
+    }
+    const link = selectedProject.dataset.link || 'https://seu-site-aqui.com';
+    window.open(link, '_blank');
+  });
 
   // Atualiza conteúdo da sidebar
   function updateSidebar(project) {
