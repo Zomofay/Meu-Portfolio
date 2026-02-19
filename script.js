@@ -2,51 +2,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sidebar = document.querySelector('.sidebar');
   const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const visitarButton = document.querySelector('.visitar');
   const projects = document.querySelectorAll('.project img');
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarTitle = document.getElementById('sidebar-title');
   const sidebarDescription = document.getElementById('sidebar-description');
 
-  let selectedImageSrc = '';
-  let selectedImageTitle = '';
-  let selectedImageDescription = '';
+  let sidebarOpen = false;
 
-  // Selecionar imagem
+  // Clicar no botão Visualizar ativa/desativa o modo visualização
+  sidebarToggle.addEventListener('click', () => {
+
+    sidebarOpen = !sidebarOpen;
+    sidebar.classList.toggle('active');
+
+  });
+
+  // Agora os projetos só atualizam se a sidebar estiver aberta
   projects.forEach(img => {
     img.addEventListener('click', () => {
 
-      selectedImageSrc = img.dataset.src || img.src;
-      selectedImageTitle = img.dataset.title || 'Projeto';
-      selectedImageDescription = img.dataset.description || 'Descrição do projeto.';
+      if (!sidebarOpen) return; // Se não estiver aberta, não faz nada
 
+      // Marca visualmente
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
 
+      // Atualiza conteúdo
+      sidebarImage.src = img.dataset.src;
+      sidebarTitle.textContent = img.dataset.title;
+      sidebarDescription.textContent = img.dataset.description;
+
     });
   });
-
-  // Botão Visualizar
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', () => {
-
-      if (selectedImageSrc) {
-        sidebarImage.src = selectedImageSrc;
-        sidebarTitle.textContent = selectedImageTitle;
-        sidebarDescription.textContent = selectedImageDescription;
-        sidebar.classList.add('active');
-      } else {
-        alert('Por favor, selecione um projeto primeiro.');
-      }
-
-    });
-  }
-
-  // Botão Visitar
-  if (visitarButton) {
-    visitarButton.addEventListener('click', () => {
-      window.open('https://seu-site-aqui.com', '_blank');
-    });
-  }
 
 });
