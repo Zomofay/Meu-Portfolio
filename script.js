@@ -7,32 +7,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarTitle = document.getElementById('sidebar-title');
   const sidebarDescription = document.getElementById('sidebar-description');
 
+  let selectedProject = null;
   let sidebarOpen = false;
 
-  // Clicar no botão Visualizar ativa/desativa o modo visualização
-  sidebarToggle.addEventListener('click', () => {
-
-    sidebarOpen = !sidebarOpen;
-    sidebar.classList.toggle('active');
-
-  });
-
-  // Agora os projetos só atualizam se a sidebar estiver aberta
+  // Selecionar projeto (sem abrir)
   projects.forEach(img => {
     img.addEventListener('click', () => {
 
-      if (!sidebarOpen) return; // Se não estiver aberta, não faz nada
-
-      // Marca visualmente
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
 
-      // Atualiza conteúdo
-      sidebarImage.src = img.dataset.src;
-      sidebarTitle.textContent = img.dataset.title;
-      sidebarDescription.textContent = img.dataset.description;
+      selectedProject = img;
+
+      // 🔥 Se a sidebar já estiver aberta, atualiza automaticamente
+      if (sidebarOpen) {
+        updateSidebar(selectedProject);
+      }
 
     });
   });
+
+  // Botão Visualizar
+  sidebarToggle.addEventListener('click', () => {
+
+    if (!selectedProject) {
+      alert('Selecione um projeto primeiro.');
+      return;
+    }
+
+    sidebarOpen = true;
+    sidebar.classList.add('active');
+
+    updateSidebar(selectedProject);
+
+  });
+
+  // Função para atualizar conteúdo
+  function updateSidebar(project) {
+    sidebarImage.src = project.dataset.src;
+    sidebarTitle.textContent = project.dataset.title;
+    sidebarDescription.textContent = project.dataset.description;
+  }
 
 });
