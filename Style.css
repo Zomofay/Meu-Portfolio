@@ -31,10 +31,6 @@ h1, h2, h3, h4, p {
   margin-bottom: 10px;
 }
 
-.presentation h3 {
-  font-size: 18px;
-}
-
 /* Conteúdo e projetos */
 .content {
   display: grid;
@@ -71,6 +67,7 @@ h1, h2, h3, h4, p {
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .project:hover img {
@@ -122,6 +119,23 @@ h1, h2, h3, h4, p {
 
 #sidebar-info h2, #sidebar-info p {
   color: #fff;
+}
+
+/* Botão visitar na sidebar */
+.sidebar .visitar {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+  display: none;
+}
+
+.sidebar .visitar:hover {
+  background-color: #333;
 }
 
 /* Botões */
