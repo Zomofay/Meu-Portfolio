@@ -7,19 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarTitle = document.getElementById('sidebar-title');
   const sidebarDescription = document.getElementById('sidebar-description');
 
-  let selectedProject = null;
-  let sidebarOpen = false;
+  let selectedProject = null; // Projeto selecionado
+  let sidebarOpen = false;    // Sidebar aberta ou não
 
   // Selecionar projeto (sem abrir)
   projects.forEach(img => {
     img.addEventListener('click', () => {
 
+      // Marca visualmente
       projects.forEach(image => image.classList.remove('selected'));
       img.classList.add('selected');
 
       selectedProject = img;
 
-      // Atualiza automaticamente se a sidebar estiver aberta
+      // Atualiza automaticamente se a sidebar já estiver aberta
       if (sidebarOpen) {
         updateSidebar(selectedProject);
       }
@@ -30,24 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Botão Visualizar
   sidebarToggle.addEventListener('click', () => {
 
+    // 🔒 Verifica se algum projeto foi selecionado
     if (!selectedProject) {
-      // 🔔 Mostrar alerta amigável se não tiver nada selecionado
+      // Se não tiver projeto selecionado, mostra alerta e NÃO abre sidebar
+      sidebar.classList.remove('active');
+      sidebarOpen = false;
       alert('Por favor, selecione um projeto antes de visualizar.');
       return;
     }
 
-    sidebarOpen = true;
+    // Abre sidebar
     sidebar.classList.add('active');
+    sidebarOpen = true;
 
+    // Atualiza o conteúdo da sidebar
     updateSidebar(selectedProject);
 
   });
 
   // Função para atualizar conteúdo da sidebar
   function updateSidebar(project) {
-    sidebarImage.src = project.dataset.src;
-    sidebarTitle.textContent = project.dataset.title;
-    sidebarDescription.textContent = project.dataset.description;
+    sidebarImage.src = project.dataset.src || project.src;
+    sidebarTitle.textContent = project.dataset.title || 'Projeto';
+    sidebarDescription.textContent = project.dataset.description || 'Descrição não disponível';
   }
 
 });
