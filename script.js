@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('dblclick', () => {
       // Remove seleção anterior
       projects.forEach(image => image.classList.remove('selected'));
+
       // Seleciona a clicada
       img.classList.add('selected');
       selectedProject = img;
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(link, '_blank');
   });
 
-  // Clique fora da sidebar fecha ela
+  // Clique fora da sidebar fecha ela e limpa seleção
   document.body.addEventListener('click', (e) => {
     if (
       !sidebar.contains(e.target) &&
