@@ -1,40 +1,3 @@
-/* Estilos globais */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #2D4356;
-  color: #888;
-}
-
-h1, h2, h3, h4, p {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 40px;
-  background-color: #435B66;
-  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.8);
-  border-radius: 25px;
-}
-
-.presentation {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.presentation h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.presentation h3 {
-  font-size: 18px;
-}
-
 /* Conteúdo e projetos */
 .content {
   display: grid;
@@ -57,10 +20,12 @@ h1, h2, h3, h4, p {
   background-color: #f9f9f9;
   overflow: hidden;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .project img {
@@ -70,7 +35,7 @@ h1, h2, h3, h4, p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover img {
@@ -93,61 +58,13 @@ h1, h2, h3, h4, p {
   opacity: 1;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 350px;
-  height: 100vh;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(15px);
-  padding: 30px;
-  transform: translateX(100%);
-  transition: transform 0.4s ease;
-  z-index: 1000;
-  overflow-y: auto;
-}
-
-.sidebar.active {
-  transform: translateX(0);
-}
-
-.sidebar img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-#sidebar-info h2, #sidebar-info p {
-  color: #fff;
-}
-
-/* Botões */
-button {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #555;
-  color: #fff;
-  margin: 5px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #333;
-}
-
-/* Contato */
-.contact {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.contact p {
-  margin: 5px 0;
+/* Efeito para imagem selecionada */
+.project img.selected {
+  border: 2px solid #ff0000;               /* borda vermelha */
+  box-shadow: 0 10px 20px rgba(255,0,0,0.5); /* sombra externa */
+  transform: scale(1.05);                  /* aumenta levemente */
+  z-index: 2;                               /* fica acima das outras imagens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 /* Responsividade */
@@ -159,13 +76,4 @@ button:hover {
     width: 100%;
     padding-bottom: 100%;
   }
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-}
-
-/* Projeto selecionado */
-.project img.selected {
-  border: 2px solid #ff0000;
 }
