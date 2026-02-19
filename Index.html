@@ -3,61 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seja bem vindo</title>
-  <link rel="stylesheet" href="Style.css">
+  <title>Portfólio Anderson</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
-    <button class="bar">|||</button>
+
     <div class="presentation">
-      <h1>Eu sou Anderson, é um prazer velo por aqui</h1>
+      <h1>Eu sou Anderson, é um prazer vê-lo por aqui</h1>
       <h3>Bem-vindo ao meu portfólio!<br> Aqui estão alguns dos meus projetos.</h3>
-      <h2> deixe me apresentar...  <br> sou novo por aqui, mas gostaria de apresentar alguns de meus projetos.</h2>
-</div>
-    <button class="Visitar">Visitar</button>
+      <h2>Deixe-me apresentar... Sou novo por aqui, mas gostaria de mostrar alguns projetos.</h2>
+    </div>
+
+    <!-- BOTÕES -->
+    <button class="visitar">Visitar</button>
     <button class="sidebar-toggle">Visualizar</button>
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <div class="content">
       <div class="projects">
-        <div class="project project-1">
-          <img src="banner.jpg" alt="Projeto 1" data-src="banner.jpg" data-title="Projeto 1" data-description="FRONT-END">
+
+        <div class="project">
+          <img 
+            src="banner.jpg"
+            data-src="banner.jpg"
+            data-title="Projeto 1"
+            data-description="Projeto Front-End desenvolvido com HTML, CSS e JavaScript."
+            data-link="https://link-do-projeto1.com"
+            alt="Projeto 1"
+          >
           <div class="project-content">
             <h2>Projeto 1</h2>
             <p>FRONT-END</p>
           </div>
         </div>
+
         <div class="project">
-          <img src="Mountain-2.jpg" alt="Projeto 2" data-src="Mountain-2.jpg" data-title="Projeto 2" data-description="BACK-END">
+          <img 
+            src="Mountain-2.jpg"
+            data-src="Mountain-2.jpg"
+            data-title="Projeto 2"
+            data-description="Projeto Back-End com lógica e banco de dados."
+            data-link="https://link-do-projeto2.com"
+            alt="Projeto 2"
+          >
           <div class="project-content">
             <h2>Projeto 2</h2>
             <p>BACK-END</p>
           </div>
         </div>
+
         <div class="project">
-          <img src="Mountain-3.jpg" alt="Projeto 3" data-src="Mountain-3.jpg" data-title="Projeto 3" data-description="FULL-STACK">
+          <img 
+            src="Mountain-3.jpg"
+            data-src="Mountain-3.jpg"
+            data-title="Projeto 3"
+            data-description="Projeto Full-Stack integrando front-end e back-end."
+            data-link="https://link-do-projeto3.com"
+            alt="Projeto 3"
+          >
           <div class="project-content">
             <h2>Projeto 3</h2>
             <p>FULL-STACK</p>
           </div>
         </div>
+
       </div>
-      <div class="sidebar">
-        <div class="sidebar-content">
-          <img id="sidebar-image" src="" alt="Imagem Selecionada">
-          <div id="sidebar-info">
-            <h2 id="sidebar-title"></h2>
-            <p id="sidebar-description"></p>
-          </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <img id="sidebar-image" src="" alt="Imagem Selecionada">
+        <div id="sidebar-info">
+          <h2 id="sidebar-title"></h2>
+          <p id="sidebar-description"></p>
         </div>
       </div>
     </div>
+
+    <!-- CONTATO -->
     <div class="contact">
       <h4>Ajuda?</h4>
       <button class="sidebar-contato">Entre em contato</button>
-      <p>Nome: Anderson da Silva Farias Filho</p>
-      <p>Email: andersonfilho12@hotmail.com</p>
-      <p>Telefone: (67) 98195-3143</p>
+      <p><strong>Nome:</strong> Anderson da Silva Farias Filho</p>
+      <p><strong>Email:</strong> andersonfilho12@hotmail.com</p>
+      <p><strong>Telefone:</strong> (67) 98195-3143</p>
     </div>
+
   </div>
-  <script src="script.js"></script> <!-- Arquivo JavaScript -->
+
+  <script src="script.js"></script>
 </body>
 </html>
